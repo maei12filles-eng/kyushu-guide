@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>九州親子自駕旅行手冊 v2.0</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">KYUSHU FAMILY ROAD TRIP</div>
+    <h1>九州親子自駕旅行手冊</h1>
+    <p>2026.10.17－10.24｜熊本進・熊本出</p>
+    <span class="route-pill">🌲 阿蘇・別府・由布院・佐賀・柳川・熊本</span>
+  </div>
+</header>
+
+<nav class="nav" id="nav">
+  <a href="#topinfo">航班</a>
+  <a href="#stay">住宿</a>
+  <a href="#overview">總覽</a>
+  <a href="#day1">D1</a>
+  <a href="#day2">D2</a>
+  <a href="#day3">D3</a>
+  <a href="#day4">D4</a>
+  <a href="#day5">D5</a>
+  <a href="#day6">D6</a>
+  <a href="#day7">D7</a>
+  <a href="#day8">D8</a>
+  <a href="#checklist">Checklist</a>
+</nav>
+
+<main>
+  <section id="topinfo" class="card">
+    <h2>✈️ 航班資訊</h2>
+    <div id="flight-grid" class="grid two"></div>
+  </section>
+
+  <section id="stay" class="card">
+    <h2>🏡 住宿資訊</h2>
+    <div id="stay-grid" class="hotel-grid"></div>
+  </section>
+
+  <section id="overview" class="card">
+    <h2>🗓️ 行程總覽</h2>
+    <div id="overview-grid" class="grid four"></div>
+  </section>
+
+  <section id="days-container"></section>
+
+  <section class="card">
+    <h2>🅿️ Hiace 停車筆記</h2>
+    <div class="grid two">
+      <div class="mini"><b>優先選擇</b>戶外平面停車場、觀光停車場、道之驛、景點自有停車場。</div>
+      <div class="mini"><b>特別注意</b>博多車站、運河城、百貨停車場先確認限高。</div>
+      <div class="mini"><b>柳川</b>可查市營本城町／筑紫町觀光停車場，或使用船公司指定停車場。</div>
+      <div class="mini"><b>由布院</b>金鱗湖周邊路窄，建議先找戶外停車場再步行。</div>
+    </div>
+  </section>
+
+  <section id="checklist" class="card">
+    <h2>✈️ 搭飛機前 Checklist</h2>
+    <div class="grid two checklist">
+      <label><input type="checkbox"> 護照、機票／訂位代號</label>
+      <label><input type="checkbox"> 手機、錢包、信用卡</label>
+      <label><input type="checkbox"> 行動電源、充電線（隨身攜帶）</label>
+      <label><input type="checkbox"> 華航線上報到確認</label>
+      <label><input type="checkbox"> Visit Japan Web 入境資料確認</label>
+      <label><input type="checkbox"> 租車確認單、國際駕照</label>
+      <label><input type="checkbox"> 推車、孩子機上用品與點心</label>
+      <label><input type="checkbox"> 托運行李與隨身行李確認</label>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>❤️ 旅行結語</h2>
+    <p class="quote">行程不用滿分，<br>只要大家玩得開心、吃得開心，<br>帶著滿滿的回憶平安回家，<br>這趟旅行，就很完美了。😊</p>
+  </section>
+
+  <footer>九州親子自駕旅行手冊｜v2.0</footer>
+</main>
+
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button" aria-label="關閉照片">×</button>
+  <div class="lightbox-card">
+    <div class="lightbox-img" id="lightbox-img"></div>
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+window.TRIP_DATA = {
+  "flights": [
+    {
+      "code": "CI394 去程｜10/17（六）",
+      "route": "桃園 T2 → 熊本",
+      "from": "TPE 桃園 T2",
+      "to": "KMJ 熊本",
+      "depart": "06:00",
+      "arrive": "09:10"
+    },
+    {
+      "code": "CI395 回程｜10/24（六）",
+      "route": "熊本 → 桃園 T2",
+      "from": "KMJ 熊本",
+      "to": "TPE 桃園 T2",
+      "depart": "10:10",
+      "arrive": "11:25"
+    }
+  ],
+  "stays": [
+    {
+      "id": "beppu-yuen",
+      "title": "D1－D3｜別府 YUEN",
+      "name": "別府 YUEN",
+      "addr": "〒874-0823<br>大分県別府市南立石一区2081",
+      "map": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E5%88%86%E7%9C%8C%E5%88%A5%E5%BA%9C%E5%B8%82%E5%8D%97%E7%AB%8B%E7%9F%B3%E4%B8%80%E5%8C%BA2081",
+      "airbnb": "https://www.airbnb.com.tw/rooms/1651464420048159784?unique_share_id=0bdebd7c-dfc1-42f9-8e6a-45322aa516e2&viralityEntryPoint=1&s=76",
+      "photos": [
+        {
+          "label": "外觀",
+          "hint": "",
+          "src": "images/beppu/01-外觀.jpg"
+        },
+        {
+          "label": "庭園",
+          "hint": "",
+          "src": "images/beppu/02-庭園.jpg"
+        },
+        {
+          "label": "溫泉",
+          "hint": "",
+          "src": "images/beppu/03-溫泉.jpg"
+        },
+        {
+          "label": "和室",
+          "hint": "",
+          "src": "images/beppu/04-和室.jpg"
+        }
+      ],
+      "guide": {
+        "checkin": "2026/10/17 16:00",
+        "checkout": "2026/10/20 10:00",
+        "platform": "官網（AirHost）",
+        "order": "不顯示",
+        "lock": "門鎖密碼：0・1・3・A。按下後將圓形旋鈕向左轉開門。",
+        "parking": "住宿附停車位；可參考房東提供的停車／抵達影片。",
+        "nearby": [
+          [
+            "🛒 超市",
+            "マルショク やまなみ店",
+            "https://www.google.com/maps/search/?api=1&query=%E3%83%9E%E3%83%AB%E3%82%B7%E3%83%A7%E3%82%AF%20%E3%82%84%E3%81%BE%E3%81%AA%E3%81%BF%E5%BA%97"
+          ],
+          [
+            "🏪 便利商店",
+            "FamilyMart 別府鉄輪店",
+            "https://www.google.com/maps/search/?api=1&query=FamilyMart%20%E5%88%A5%E5%BA%9C%20%E9%89%84%E8%BC%AA"
+          ],
+          [
+            "🍜 晚餐",
+            "東洋軒",
+            "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%B4%8B%E8%BB%92%20%E5%88%A5%E5%BA%9C"
+          ],
+          [
+            "⛽ 加油站",
+            "ENEOS 別府石垣 SS",
+            "https://www.google.com/maps/search/?api=1&query=ENEOS%20%E5%88%A5%E5%BA%9C%E7%9F%B3%E5%9E%A3%20SS"
+          ]
+        ],
+        "features": [
+          "♨️ 天然溫泉",
+          "🏡 日式庭園",
+          "🔑 自助入住",
+          "🚐 停車",
+          "👨‍👩‍👧‍👦 4大4小"
+        ]
+      }
+    },
+    {
+      "id": "nakagawa",
+      "title": "D4－D6｜福岡那珂川庵",
+      "name": "福岡那珂川庵",
+      "addr": "〒811-1254<br>福岡県那珂川市道善2丁目25",
+      "map": "https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E9%82%A3%E7%8F%82%E5%B7%9D%E5%B8%82%E9%81%93%E5%96%842%E4%B8%81%E7%9B%AE25",
+      "airbnb": "https://www.airbnb.com.tw/rooms/1520732648327833842",
+      "photos": [
+        {
+          "label": "外觀",
+          "hint": "",
+          "src": "images/nakagawa/01-外觀.jpg"
+        },
+        {
+          "label": "停車",
+          "hint": "",
+          "src": "images/nakagawa/02-停車.jpg"
+        },
+        {
+          "label": "臥室",
+          "hint": "",
+          "src": "images/nakagawa/03-臥室.jpg"
+        },
+        {
+          "label": "客廳",
+          "hint": "",
+          "src": "images/nakagawa/04-客廳.jpg"
+        }
+      ],
+      "guide": {
+        "checkin": "2026/10/20 16:00",
+        "checkout": "2026/10/23 10:00",
+        "platform": "Airbnb",
+        "order": "不顯示",
+        "lock": "無接觸自助入住。入住前先完成線上登記；入住當日約 12:00 發送門鎖密碼，若 12:20 尚未收到請聯絡房東。",
+        "parking": "免費停車；可使用住宿前方車位。",
+        "nearby": [
+          [
+            "🛒 超市",
+            "サニー那珂川店",
+            "https://www.google.com/maps/search/?api=1&query=%E3%82%B5%E3%83%8B%E3%83%BC%E9%82%A3%E7%8F%82%E5%B7%9D%E5%BA%97"
+          ],
+          [
+            "🏪 便利商店",
+            "セブン-イレブン 那珂川道善店",
+            "https://www.google.com/maps/search/?api=1&query=%E3%82%BB%E3%83%96%E3%83%B3-%E3%82%A4%E3%83%AC%E3%83%96%E3%83%B3%20%E9%82%A3%E7%8F%82%E5%B7%9D%E9%81%93%E5%96%84%E5%BA%97"
+          ],
+          [
+            "🍜 晚餐",
+            "那珂川清滝",
+            "https://www.google.com/maps/search/?api=1&query=%E9%82%A3%E7%8F%82%E5%B7%9D%E6%B8%85%E6%BB%9D"
+          ],
+          [
+            "⛽ 加油站",
+            "ENEOS 那珂川 SS",
+            "https://www.google.com/maps/search/?api=1&query=ENEOS%20%E9%82%A3%E7%8F%82%E5%B7%9D%20SS"
+          ],
+          [
+            "📝 入住登記",
+            "OneStay 事前登記",
+            "https://www.onestayapp.com/s/amWHPp1"
+          ]
+        ],
+        "features": [
+          "🏡 日式獨棟住宅",
+          "🔑 自助入住",
+          "🚐 免費停車",
+          "🧳 12:00 起可先寄放行李",
+          "👨‍👩‍👧‍👦 4大4小"
+        ]
+      }
+    },
+    {
+      "id": "kumamoto-treehouse",
+      "title": "D7｜熊本 Treehouse",
+      "name": "熊本 Treehouse",
+      "addr": "〒860-0051<br>熊本県熊本市西区二本木3丁目3-3",
+      "map": "https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E6%9C%AC%E7%9C%8C%E7%86%8A%E6%9C%AC%E5%B8%82%E8%A5%BF%E5%8C%BA%E4%BA%8C%E6%9C%AC%E6%9C%A83%E4%B8%81%E7%9B%AE3-3",
+      "airbnb": "https://www.airbnb.com.tw/rooms/1458327345344193213?unique_share_id=e56fe9f6-3086-4721-8ebb-55120cf7e051&viralityEntryPoint=1&s=76",
+      "photos": [
+        {
+          "label": "遊戲空間",
+          "hint": "",
+          "src": "images/kumamoto/01-遊戲空間.jpg"
+        },
+        {
+          "label": "臥室",
+          "hint": "",
+          "src": "images/kumamoto/02-臥室.jpg"
+        },
+        {
+          "label": "客餐廳",
+          "hint": "",
+          "src": "images/kumamoto/03-客餐廳.jpg"
+        },
+        {
+          "label": "停車位",
+          "hint": "",
+          "src": "images/kumamoto/04-停車位.jpg"
+        }
+      ],
+      "guide": {
+        "checkin": "15:00",
+        "checkout": "11:00",
+        "platform": "Agoda",
+        "order": "不顯示",
+        "lock": "自助入住／智慧鎖，門鎖密碼入住前由房東提供",
+        "parking": "免費停車（1 個車位）",
+        "nearby": [
+          [
+            "🛒 超市",
+            "ゆめマート熊本",
+            "https://www.google.com/maps/search/?api=1&query=%E3%82%86%E3%82%81%E3%83%9E%E3%83%BC%E3%83%88%E7%86%8A%E6%9C%AC"
+          ],
+          [
+            "🏪 便利商店",
+            "FamilyMart 熊本二本木店",
+            "https://www.google.com/maps/search/?api=1&query=FamilyMart%20%E7%86%8A%E6%9C%AC%E4%BA%8C%E6%9C%AC%E6%9C%A8%E5%BA%97"
+          ],
+          [
+            "🍜 晚餐",
+            "勝烈亭 新市街本店",
+            "https://www.google.com/maps/search/?api=1&query=%E5%8B%9D%E7%83%88%E4%BA%AD%20%E6%96%B0%E5%B8%82%E8%A1%97%E6%9C%AC%E5%BA%97"
+          ],
+          [
+            "⛽ 加油站",
+            "ENEOS 熊本二本木 SS",
+            "https://www.google.com/maps/search/?api=1&query=ENEOS%20%E7%86%8A%E6%9C%AC%E4%BA%8C%E6%9C%AC%E6%9C%A8%20SS"
+          ]
+        ],
+        "features": [
+          "🌳 木屋風格",
+          "🧒 兒童遊戲空間",
+          "🔑 自助入住",
+          "🔐 智慧鎖",
+          "🚐 免費停車"
+        ]
+      }
+    }
+  ],
+  "days": [
+    {
+      "id": "day1",
+      "day": "DAY 1｜10/17（六）",
+      "title": "阿蘇花海・草千里・別府晚餐",
+      "stay": "別府 YUEN",
+      "route": "熊本 → 久木野 → 草千里 → 別府",
+      "timeline": [
+        [
+          "09:10",
+          "抵達熊本機場，辦理租車與安全座椅。"
+        ],
+        [
+          "10:40–11:20",
+          "道之驛 阿蘇望之鄉久木野，花海與阿蘇五岳拍照。"
+        ],
+        [
+          "11:50–13:30",
+          "草千里午餐，讓孩子在草原放風。"
+        ],
+        [
+          "13:30–16:00",
+          "沿阿蘇景觀公路前往別府。"
+        ],
+        [
+          "16:00",
+          "入住別府 YUEN，稍作休息。"
+        ],
+        [
+          "17:30",
+          "別府晚餐，吃完再補給採買。"
+        ],
+        [
+          "19:00",
+          "超市補充隔天早餐、水與車上點心。"
+        ]
+      ],
+      "buttons": [
+        [
+          "阿蘇望之鄉久木野",
+          "https://www.google.com/maps/search/?api=1&query=%E9%81%93%E3%81%AE%E9%A7%85%20%E3%81%82%E3%81%9D%E6%9C%9B%E3%81%AE%E9%83%B7%E3%81%8F%E3%81%8E%E3%81%AE",
+          "primary"
+        ],
+        [
+          "草千里",
+          "https://www.google.com/maps/search/?api=1&query=%E8%8D%89%E5%8D%83%E9%87%8C",
+          "primary"
+        ],
+        [
+          "今日導航",
+          "https://www.google.com/maps/dir/?api=1&origin=%E7%86%8A%E6%9C%AC%E6%A9%9F%E5%A0%B4&destination=%E5%A4%A7%E5%88%86%E7%9C%8C%E5%88%A5%E5%BA%9C%E5%B8%82%E9%89%84%E8%BC%AA%E4%B8%8A1%E7%B5%84&waypoints=%E9%81%93%E3%81%AE%E9%A7%85%20%E3%81%82%E3%81%9D%E6%9C%9B%E3%81%AE%E9%83%B7%E3%81%8F%E3%81%8E%E3%81%AE%7C%E8%8D%89%E5%8D%83%E9%87%8C",
+          "light"
+        ]
+      ],
+      "tips": [
+        [
+          "🌸 秋季限定",
+          [
+            "道之驛後方花園可拍波斯菊、波波草與阿蘇五岳。",
+            "孩子可在草皮廣場跑跳，停留 30–40 分鐘剛好。"
+          ]
+        ],
+        [
+          "🍴 推薦晚餐",
+          [
+            "東洋軒：別府名物「とり天」。",
+            "焼肉 一力：想吃豐後牛燒肉可列入備案。"
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "day2",
+      "day": "DAY 2｜10/18（日）",
+      "title": "別府纜車・海地獄・灶地獄",
+      "stay": "別府 YUEN",
+      "route": "纜車 → 海地獄 → 灶地獄",
+      "timeline": [
+        [
+          "08:30",
+          "飯店早餐後出發，先前往別府纜車。"
+        ],
+        [
+          "09:00–10:30",
+          "搭乘第一班別府纜車，避開週日人潮。"
+        ],
+        [
+          "11:00–12:20",
+          "海地獄散步。園區大、好推車，可吃地獄蒸布丁、極樂饅頭。"
+        ],
+        [
+          "12:20–13:30",
+          "前往灶地獄，泡足湯、吃溫泉蛋與醬油布丁。"
+        ],
+        [
+          "13:45",
+          "返回飯店休息。若孩子狀態很好，可加拍鬼石坊主地獄。"
+        ],
+        [
+          "17:30 後",
+          "自煮晚餐，或外帶美食回飯店。"
+        ]
+      ],
+      "buttons": [
+        [
+          "別府纜車",
+          "https://www.google.com/maps/search/?api=1&query=%E5%88%A5%E5%BA%9C%E3%83%AD%E3%83%BC%E3%83%97%E3%82%A6%E3%82%A7%E3%82%A4",
+          "primary"
+        ],
+        [
+          "海地獄",
+          "https://www.google.com/maps/search/?api=1&query=%E6%B5%B7%E5%9C%B0%E7%8D%84",
+          "primary"
+        ],
+        [
+          "灶地獄",
+          "https://www.google.com/maps/search/?api=1&query=%E3%81%8B%E3%81%BE%E3%81%A9%E5%9C%B0%E7%8D%84",
+          "primary"
+        ],
+        [
+          "今日導航",
+          "https://www.google.com/maps/dir/?api=1&origin=%E5%A4%A7%E5%88%86%E7%9C%8C%E5%88%A5%E5%BA%9C%E5%B8%82%E9%89%84%E8%BC%AA%E4%B8%8A1%E7%B5%84&destination=%E5%A4%A7%E5%88%86%E7%9C%8C%E5%88%A5%E5%BA%9C%E5%B8%82%E9%89%84%E8%BC%AA%E4%B8%8A1%E7%B5%84&waypoints=%E5%88%A5%E5%BA%9C%E3%83%AD%E3%83%BC%E3%83%97%E3%82%A6%E3%82%A7%E3%82%A4%7C%E6%B5%B7%E5%9C%B0%E7%8D%84%7C%E3%81%8B%E3%81%BE%E3%81%A9%E5%9C%B0%E7%8D%84",
+          "light"
+        ]
+      ],
+      "tips": [
+        [
+          "♨️ 地獄巡禮重點",
+          [
+            "這天只排海地獄與灶地獄最剛好；不買七地獄聯票也可以。",
+            "海地獄適合拍照、買伴手禮、吃地獄蒸布丁。",
+            "灶地獄互動感最強，有足湯、溫泉蒸氣體驗、溫泉蛋與醬油布丁。"
+          ]
+        ],
+        [
+          "🅿️ 停車提醒",
+          [
+            "海地獄門口有大型免費停車場。",
+            "若海地獄滿車，可改停鬼山地獄駐車場。"
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "day3",
+      "day": "DAY 3｜10/19（一）",
+      "title": "九重夢大吊橋・由布院湯之坪街道・金鱗湖",
+      "stay": "別府 YUEN",
+      "route": "九重 → 由布院湯之坪・金鱗湖",
+      "timeline": [
+        [
+          "09:00",
+          "別府出發，前往九重夢大吊橋。"
+        ],
+        [
+          "10:00–11:00",
+          "九重夢大吊橋散步、拍照。"
+        ],
+        [
+          "11:00–11:40",
+          "前往由布院，優先找戶外平面停車場。"
+        ],
+        [
+          "11:40–13:00",
+          "湯之坪街道午餐與散步。"
+        ],
+        [
+          "13:00–14:30",
+          "橡實之森、Miffy、Snoopy、花卉村一帶慢慢逛。"
+        ],
+        [
+          "14:30–15:30",
+          "金鱗湖散步與下午茶。"
+        ],
+        [
+          "15:30 後",
+          "返回別府，晚上自由安排。"
+        ]
+      ],
+      "buttons": [
+        [
+          "九重夢大吊橋",
+          "https://www.google.com/maps/search/?api=1&query=%E4%B9%9D%E9%87%8D%E5%A4%A2%E5%A4%A7%E5%90%8A%E6%A9%8B",
+          "primary"
+        ],
+        [
+          "ゆふいん駐車場",
+          "https://www.google.com/maps/search/?api=1&query=%E3%82%86%E3%81%B5%E3%81%84%E3%82%93%E9%A7%90%E8%BB%8A%E5%A0%B4",
+          "secondary"
+        ],
+        [
+          "湯之坪街道",
+          "https://www.google.com/maps/search/?api=1&query=%E7%94%B1%E5%B8%83%E9%99%A2%20%E6%B9%AF%E3%81%AE%E5%9D%AA%E8%A1%97%E9%81%93",
+          "primary"
+        ],
+        [
+          "金鱗湖",
+          "https://www.google.com/maps/search/?api=1&query=%E7%94%B1%E5%B8%83%E9%99%A2%20%E9%87%91%E9%B1%97%E6%B9%96",
+          "primary"
+        ],
+        [
+          "今日導航",
+          "https://www.google.com/maps/dir/?api=1&origin=%E5%A4%A7%E5%88%86%E7%9C%8C%E5%88%A5%E5%BA%9C%E5%B8%82%E9%89%84%E8%BC%AA%E4%B8%8A1%E7%B5%84&destination=%E5%A4%A7%E5%88%86%E7%9C%8C%E5%88%A5%E5%BA%9C%E5%B8%82%E9%89%84%E8%BC%AA%E4%B8%8A1%E7%B5%84&waypoints=%E4%B9%9D%E9%87%8D%E5%A4%A2%E5%A4%A7%E5%90%8A%E6%A9%8B%7C%E3%82%86%E3%81%B5%E3%81%84%E3%82%93%E9%A7%90%E8%BB%8A%E5%A0%B4%7C%E7%94%B1%E5%B8%83%E9%99%A2%20%E9%87%91%E9%B1%97%E6%B9%96",
+          "light"
+        ]
+      ],
+      "tips": [
+        [
+          "🍡 由布院美食與下午茶",
+          [
+            "Milch：半熟起司蛋糕、布丁。",
+            "金賞可樂餅：街頭小吃，適合孩子分食。",
+            "B-speak：蛋糕捲很熱門，容易售完。",
+            "鞠智 cucuchi：地雞蕎麥麵可當午餐。"
+          ]
+        ],
+        [
+          "🅿️ 停車提醒",
+          [
+            "由布院停車場很多但價差大，請先設定 2–3 個備案。",
+            "優先考慮「ゆふいん駐車場」。",
+            "大海獅請避開立體停車場，優先戶外平面停車。"
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "day4",
+      "day": "DAY 4｜10/20（二）",
+      "title": "九州自然動物園・大山水壩・前往福岡",
+      "stay": "福岡那珂川庵",
+      "route": "動物園 → 大山水壩 → 福岡",
+      "timeline": [
+        [
+          "07:50",
+          "別府 YUEN 退房，前往九州自然動物園。"
+        ],
+        [
+          "08:20",
+          "抵達售票口排隊，孩子可在車上吃早餐。"
+        ],
+        [
+          "09:15",
+          "開園後直接前往叢林巴士。"
+        ],
+        [
+          "09:30–10:00",
+          "搭乘上午黃金場次叢林巴士。"
+        ],
+        [
+          "10:00–12:30",
+          "步行區、袋鼠區或自駕野生動物區。"
+        ],
+        [
+          "13:00",
+          "離園前往大山水壩，安排孩子車上午睡。"
+        ],
+        [
+          "13:40–15:00",
+          "進擊的巨人銅像拍照，順道享用大壩咖哩飯。"
+        ],
+        [
+          "16:30 左右",
+          "入住民宿。"
+        ]
+      ],
+      "buttons": [
+        [
+          "九州自然動物園",
+          "https://www.google.com/maps/search/?api=1&query=%E4%B9%9D%E5%B7%9E%E8%87%AA%E7%84%B6%E5%8B%95%E7%89%A9%E5%9C%92%20%E3%82%A2%E3%83%95%E3%83%AA%E3%82%AB%E3%83%B3%E3%82%B5%E3%83%95%E3%82%A1%E3%83%AA",
+          "primary"
+        ],
+        [
+          "大山水壩",
+          "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E5%B1%B1%E3%83%80%E3%83%A0%20%E6%97%A5%E7%94%B0%20%E9%80%B2%E6%92%83%E3%81%AE%E5%B7%A8%E4%BA%BA",
+          "primary"
+        ],
+        [
+          "今日導航",
+          "https://www.google.com/maps/dir/?api=1&origin=%E5%A4%A7%E5%88%86%E7%9C%8C%E5%88%A5%E5%BA%9C%E5%B8%82%E9%89%84%E8%BC%AA%E4%B8%8A1%E7%B5%84&destination=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E9%82%A3%E7%8F%82%E5%B7%9D%E5%B8%82%E9%81%93%E5%96%842%E4%B8%81%E7%9B%AE25&waypoints=%E4%B9%9D%E5%B7%9E%E8%87%AA%E7%84%B6%E5%8B%95%E7%89%A9%E5%9C%92%20%E3%82%A2%E3%83%95%E3%83%AA%E3%82%AB%E3%83%B3%E3%82%B5%E3%83%95%E3%82%A1%E3%83%AA%7C%E5%A4%A7%E5%B1%B1%E3%83%80%E3%83%A0%20%E6%97%A5%E7%94%B0",
+          "light"
+        ]
+      ],
+      "tips": [
+        [
+          "🦁 叢林巴士攻略",
+          [
+            "建議 08:20 左右抵達售票口排隊。",
+            "09:15 開園後直接前往叢林巴士。"
+          ]
+        ],
+        [
+          "🍛 大壩咖哩飯",
+          [
+            "大山水壩旁道之驛可安排大壩咖哩飯。"
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "day5",
+      "day": "DAY 5｜10/21（三）",
+      "title": "唐津城・西之濱海灘・神野公園",
+      "stay": "福岡那珂川庵",
+      "route": "唐津 → 神野公園",
+      "timeline": [
+        [
+          "09:30",
+          "那珂川庵出發，前往唐津。"
+        ],
+        [
+          "11:15–12:45",
+          "唐津市區享用佐賀牛午餐。"
+        ],
+        [
+          "13:00–14:15",
+          "唐津城、西之濱海灘散步拍照。"
+        ],
+        [
+          "14:45–16:30",
+          "神野公園遊玩；若孩子睡著，直接返回福岡即可。"
+        ],
+        [
+          "16:30 後",
+          "返回福岡那珂川庵。"
+        ]
+      ],
+      "buttons": [
+        [
+          "唐津城",
+          "https://www.google.com/maps/search/?api=1&query=%E5%94%90%E6%B4%A5%E5%9F%8E",
+          "primary"
+        ],
+        [
+          "西之濱海灘",
+          "https://www.google.com/maps/search/?api=1&query=%E8%A5%BF%E3%81%AE%E6%B5%9C%20%E5%94%90%E6%B4%A5",
+          "primary"
+        ],
+        [
+          "神野公園",
+          "https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E9%87%8E%E5%85%AC%E5%9C%92%E3%81%93%E3%81%A9%E3%82%82%E9%81%8A%E5%9C%92%E5%9C%B0",
+          "primary"
+        ],
+        [
+          "今日導航",
+          "https://www.google.com/maps/dir/?api=1&origin=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E9%82%A3%E7%8F%82%E5%B7%9D%E5%B8%82%E9%81%93%E5%96%842%E4%B8%81%E7%9B%AE25&destination=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E9%82%A3%E7%8F%82%E5%B7%9D%E5%B8%82%E9%81%93%E5%96%842%E4%B8%81%E7%9B%AE25&waypoints=%E5%94%90%E6%B4%A5%E5%9F%8E%7C%E8%A5%BF%E3%81%AE%E6%B5%9C%20%E5%94%90%E6%B4%A5%7C%E7%A5%9E%E9%87%8E%E5%85%AC%E5%9C%92%E3%81%93%E3%81%A9%E3%82%82%E9%81%8A%E5%9C%92%E5%9C%B0",
+          "light"
+        ]
+      ],
+      "tips": [
+        [
+          "🥩 唐津／佐賀美食",
+          [
+            "佐賀牛燒肉、唐津 Burger。",
+            "若時間充裕，可考慮呼子花枝。"
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "day6",
+      "day": "DAY 6｜10/22（四）",
+      "title": "寶可夢中心・博多購物・運河城",
+      "stay": "福岡那珂川庵",
+      "route": "寶可夢中心 → 博多・運河城",
+      "timeline": [
+        [
+          "09:00",
+          "那珂川庵出發，前往博多車站。"
+        ],
+        [
+          "10:00–14:00",
+          "Pokémon Center 開門後先前往，再順遊 AMU PLAZA。"
+        ],
+        [
+          "14:30–17:00",
+          "前往博多運河城，散步、看噴水秀。"
+        ],
+        [
+          "17:00 後",
+          "返回那珂川庵。"
+        ]
+      ],
+      "buttons": [
+        [
+          "AMU PLAZA",
+          "https://www.google.com/maps/search/?api=1&query=AMU%20PLAZA%20%E5%8D%9A%E5%A4%9A",
+          "primary"
+        ],
+        [
+          "Pokémon Center",
+          "https://www.google.com/maps/search/?api=1&query=Pok%C3%A9mon%20Center%20Fukuoka",
+          "primary"
+        ],
+        [
+          "運河城",
+          "https://www.google.com/maps/search/?api=1&query=Canal%20City%20Hakata",
+          "primary"
+        ],
+        [
+          "今日導航",
+          "https://www.google.com/maps/dir/?api=1&origin=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E9%82%A3%E7%8F%82%E5%B7%9D%E5%B8%82%E9%81%93%E5%96%842%E4%B8%81%E7%9B%AE25&destination=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E9%82%A3%E7%8F%82%E5%B7%9D%E5%B8%82%E9%81%93%E5%96%842%E4%B8%81%E7%9B%AE25&waypoints=AMU%20PLAZA%20%E5%8D%9A%E5%A4%9A%7CCanal%20City%20Hakata",
+          "light"
+        ]
+      ],
+      "tips": [
+        [
+          "🛍️ 推薦購物",
+          [
+            "Pokémon Center、AMU PLAZA、伴手禮補貨。"
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "day7",
+      "day": "DAY 7｜10/23（五）",
+      "title": "柳川遊船・熊本拍照",
+      "stay": "熊本 Treehouse",
+      "route": "柳川 → 熊本",
+      "timeline": [
+        [
+          "09:00",
+          "那珂川庵退房，行李全上車。"
+        ],
+        [
+          "10:15–11:30",
+          "柳川遊船，邊看風景邊吃點心。"
+        ],
+        [
+          "11:45–13:15",
+          "柳川蒸籠鰻魚飯午餐。"
+        ],
+        [
+          "13:15–14:30",
+          "前往熊本，安排孩子車上午睡。"
+        ],
+        [
+          "14:45–15:30",
+          "熊本部長辦公室拍照。"
+        ],
+        [
+          "15:45–16:30",
+          "魯夫雕像拍照。"
+        ],
+        [
+          "17:00",
+          "入住熊本樹屋。"
+        ]
+      ],
+      "buttons": [
+        [
+          "柳川遊船",
+          "https://www.google.com/maps/search/?api=1&query=%E6%9F%B3%E5%B7%9D%20%E5%B7%9D%E4%B8%8B%E3%82%8A",
+          "primary"
+        ],
+        [
+          "熊本部長辦公室",
+          "https://www.google.com/maps/search/?api=1&query=Kumamon%20Square",
+          "primary"
+        ],
+        [
+          "魯夫雕像",
+          "https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E6%9C%AC%E7%9C%8C%E5%BA%81%20%E3%83%AB%E3%83%95%E3%82%A3%E5%83%8F",
+          "primary"
+        ],
+        [
+          "今日導航",
+          "https://www.google.com/maps/dir/?api=1&origin=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E9%82%A3%E7%8F%82%E5%B7%9D%E5%B8%82%E9%81%93%E5%96%842%E4%B8%81%E7%9B%AE25&destination=%E7%86%8A%E6%9C%AC%E7%9C%8C%E7%86%8A%E6%9C%AC%E5%B8%82%E8%A5%BF%E5%8C%BA%E4%BA%8C%E6%9C%AC%E6%9C%A83%E4%B8%81%E7%9B%AE3-3&waypoints=%E6%9F%B3%E5%B7%9D%20%E5%B7%9D%E4%B8%8B%E3%82%8A%7CKumamon%20Square%7C%E7%86%8A%E6%9C%AC%E7%9C%8C%E5%BA%81%20%E3%83%AB%E3%83%95%E3%82%A3%E5%83%8F",
+          "light"
+        ]
+      ],
+      "tips": [
+        [
+          "🍱 柳川美食",
+          [
+            "若松屋、本吉屋：蒸籠鰻魚飯。"
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "day8",
+      "day": "DAY 8｜10/24（六）",
+      "title": "熊本機場返台",
+      "stay": "回台灣",
+      "route": "熊本機場返台",
+      "timeline": [
+        [
+          "07:15",
+          "樹屋退房出發，車上吃早餐。"
+        ],
+        [
+          "07:50–08:15",
+          "機場附近加油，辦理租車歸還。"
+        ],
+        [
+          "08:35",
+          "搭接駁車抵達熊本機場。"
+        ],
+        [
+          "08:50–10:10",
+          "託運行李、通過安檢，準備搭機返台。"
+        ]
+      ],
+      "buttons": [
+        [
+          "熊本機場",
+          "https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E6%9C%AC%E6%A9%9F%E5%A0%B4",
+          "primary"
+        ],
+        [
+          "今日導航",
+          "https://www.google.com/maps/dir/?api=1&origin=%E7%86%8A%E6%9C%AC%E7%9C%8C%E7%86%8A%E6%9C%AC%E5%B8%82%E8%A5%BF%E5%8C%BA%E4%BA%8C%E6%9C%AC%E6%9C%A83%E4%B8%81%E7%9B%AE3-3&destination=%E7%86%8A%E6%9C%AC%E6%A9%9F%E5%A0%B4",
+          "light"
+        ]
+      ],
+      "tips": [
+        [
+          "✈️ 機場提醒",
+          [
+            "行動電源務必隨身攜帶，不可托運。",
+            "護照、華航線上報到、Visit Japan Web 先確認。"
+          ]
+        ]
+      ]
+    }
+  ]
+};
+</script>
+<script src="js/script.js"></script>
+</body>
+</html>
